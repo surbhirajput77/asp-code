@@ -1,0 +1,14 @@
+﻿@inject live.asp.net.Services.CookieConsentService CookieConsentService
+
+@if (CookieConsentService.IsConsentRequired(Context))
+{
+    foreach (var consentMessageJavascript in CookieConsentService.GetConsentJavaScript(Context))
+    {
+        <script src="@consentMessageJavascript"></script>
+    }
+
+    foreach (var consentMessageStylesheet in CookieConsentService.GetConsentStylesheets(Context))
+    {
+        <link rel="stylesheet" href="@consentMessageStylesheet" />
+    }
+}

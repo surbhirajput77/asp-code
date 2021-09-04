@@ -1,0 +1,6 @@
+﻿@inject live.asp.net.Services.CookieConsentService CookieConsentService
+
+@if (CookieConsentService.IsConsentRequired(Context))
+{
+    <div>@CookieConsentService.GetConsentHtml(Context)</div>
+}
